@@ -1,2 +1,2 @@
 # tetris
-Tetris built for practice purposes
+Tetris game built for practice purposes
