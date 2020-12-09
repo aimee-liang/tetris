@@ -11,3 +11,7 @@
     height: 20px;
     background-color: yellow;
 }
+
+.tetromino {
+    background-color: red;
+}

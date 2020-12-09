@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', ()=> {
-    const grid = document.querySelector('.grid');
+    const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const ScoreDisplay = document.querySelector('#score')
     const StartBtn = document.querySelector('#start-button')
-    const width = 10;
+    const width = 10
 
-/* each Tetris shape, plus its rotations */
+/* each Tetris shape */
     const lTetromino = [
         [1, width+1, width*2+1, 2],
         [width, width+1, width+2, width*2+2],
@@ -35,10 +35,14 @@ document.addEventListener('DOMContentLoaded', ()=> {
     ]
 
     const iTetromino = [
-        [],
-        [],
-        [],
-        []
+        [1, width+1, width*2+1, width*3+1],
+        [width, width+1, width+2, width+3],
+        [1, width+1, width*2+1, width*3+1],
+        [width, width+1, width+2, width+3]
     ]
 
+    const allTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
+
+    let currentPosition = 4
+    let current = allTetrominoes[0][0]
 })
