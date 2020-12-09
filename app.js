@@ -61,6 +61,21 @@ document.addEventListener('DOMContentLoaded', ()=> {
         })
     }
 
+    timerId = setInterval(moveDown, 1000)
+
+    moveDown = () => {
+        undraw()
+        currentPosition += width
+        draw()
+    }
+
+    freeze = () => {
+        if (currentTetro.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
+            currentTetro.forEach(index => squares[currentPosition + index].classList.add('taken'))
+            randomTetro
+        }
+    }
+
     draw()
 
 })
