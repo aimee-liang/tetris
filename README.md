@@ -1,5 +1,5 @@
 ## Tetris
-![Alt Text](https://tenor.com/bnmnj.gif)
+![Alt Text](https://media.giphy.com/media/kggpMv2Golmr46qu1m/giphy.gif)
 ### Credits
 Thanks to Ania Kubow and FreeCodeCamp for the tutorial, which you can find on [Youtube](https://www.youtube.com/watch?v=rAUn1Lom6dw&ab_channel=freeCodeCamp.org).
 
