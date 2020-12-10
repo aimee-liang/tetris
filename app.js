@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'orange',
         'red',
         'green',
-        'purple',
-        'white'
+        'yellow',
+        'blue'
     ]
 
     const lTetromino = [
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     rotate = () => {
         undraw()
         currentRotation ++
-        if (currentRotation === current.length){ //if current rotation is 4, start rotation at beginning
+        if (currentRotation === current.length){
             currentRotation = 0
         }
         current = allTetrominoes[random][currentRotation]
@@ -168,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
             timerId = setInterval(moveDown, 1000)
             nextRandom = Math.floor(Math.random()*allTetrominoes.length)
             displayShape()
-            add
         }
     })
 
@@ -182,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
                     squares[index].classList.remove('tetronimo')
-                    squares[index].stye.backgroundColor = ''
+                    squares[index].style.backgroundColor = ''
                 })
                 const squaresRemoved = squares.splice(i, width)
                 squares = squaresRemoved.concat(squares)

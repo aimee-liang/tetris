@@ -1,7 +1,6 @@
 .grid {
     width: 200px;
     height: 400px;
-    background-color: gray;
     border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
@@ -26,7 +25,7 @@
     height: 80px;
     display: flex;
     flex-wrap: wrap;
-    background-color: blue;
+    border: solid black 1px;
 }
 
 .mini-grid div {
