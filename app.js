@@ -46,22 +46,35 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPosition = 4
     let currentRotation = 0
 
-    let randomTetro = Math.floor(Math.random() * allTetrominoes.length)
-    let currentTetro = allTetrominoes[randomTetro][currentRotation]
+    let random = Math.floor(Math.random() * allTetrominoes.length)
+    let current = allTetrominoes[random][currentRotation]
 
     const draw = () => {
-        currentTetro.forEach(index => {
+        current.forEach(index => {
             squares[currentPosition + index].classList.add('tetromino')
         })
     }
 
     const undraw = () => {
-        currentTetro.forEach(index => {
+        current.forEach(index => {
             squares[currentPosition + index].classList.remove('tetromino')
         })
     }
 
     timerId = setInterval(moveDown, 1000)
+
+    control = (e) => {
+        if (e.keyCode === 37){
+            moveLeft()
+        } else if(e.keyCode === 38){
+            // rotate
+        } else if (e.keyCode === 39) {
+            moveRight()
+        } else if (e.keyCode === 40) {
+            moveDown()
+        }
+    }
+    document.addEventListener('keyup', control)
 
     moveDown = () => {
         undraw()
@@ -71,8 +84,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     freeze = () => {
-        if (currentTetro.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
-            currentTetro.forEach(index => squares[currentPosition + index].classList.add('taken'))
+        if (current.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
+            current.forEach(index => squares[currentPosition + index].classList.add('taken'))
             random = Math.floor(Math.random() * allTetrominoes.length)
             current = allTetrominoes[random][currentRotation]
             currentPosition = 4
@@ -82,9 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     moveLeft = () => {
         undraw()
-        const isAtLeftEdge = current.some(index => (currentTetro + index) % width === 0)
+        const isAtLeftEdge = current.some(index => (current + index) % width === 0)
+        if (!isAtLeftEdge) currentPosition -= 1
+
+        if (current.some(index => squares[currentPosition + index].classList.contains('taken'))){
+            currentPosition += 1
+        }
+
+        draw()
     }
 
-    // draw()
+    moveRight = () => {
+        undraw()
+        const isAtRightEdge = current.some(index => (currentPosition + index) % width)
+    }
 
 })
