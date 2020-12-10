@@ -1,7 +1,8 @@
 .grid {
     width: 200px;
     height: 400px;
-    background-color: blue;
+    background-color: gray;
+    border: solid black 1px;
     display: flex;
     flex-wrap: wrap;
 }
