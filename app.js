@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid')
     let squares = Array.from(document.querySelectorAll('.grid div'))
     const ScoreDisplay = document.querySelector('#score')
@@ -67,15 +67,24 @@ document.addEventListener('DOMContentLoaded', ()=> {
         undraw()
         currentPosition += width
         draw()
+        freeze()
     }
 
     freeze = () => {
         if (currentTetro.some(index => squares[currentPosition + index + width].classList.contains('taken'))){
             currentTetro.forEach(index => squares[currentPosition + index].classList.add('taken'))
-            randomTetro
+            random = Math.floor(Math.random() * allTetrominoes.length)
+            current = allTetrominoes[random][currentRotation]
+            currentPosition = 4
+            draw()
         }
     }
 
-    draw()
+    moveLeft = () => {
+        undraw()
+        const isAtLeftEdge = current.some(index => (currentTetro + index) % width === 0)
+    }
+
+    // draw()
 
 })
