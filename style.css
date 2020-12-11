@@ -12,7 +12,8 @@
 }
 
 .tetromino {
-    background-color: red;
+    /* background-color: red; */
+    background-color: white;
 }
 
 .container {
