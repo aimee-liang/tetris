@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             draw()
             timerId = setInterval(moveDown, 1000)
+            // timerId = setInterval(moveDown, 500) /* idea to increase functionality - add levels and make faster? */
             nextRandom = Math.floor(Math.random()*allTetrominoes.length)
             displayShape()
         }
@@ -201,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (row.every(index => squares[index].classList.contains('taken'))){
                 score += 10
+                // score += 5 /* maybe make it harder to get points if you select harder level? */
                 scoreDisplay.innerHTML = score
                 row.forEach(index => {
                     squares[index].classList.remove('taken')
