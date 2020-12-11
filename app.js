@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         [1, width, width+1, width+2],
         [1, width+1, width+2, width*2+1],
         [width, width+1, width+2, width*2+1],
-        []
+        [1, width, width+1, width*2+1]
     ]
 
     const oTetromino = [
@@ -124,6 +124,29 @@ document.addEventListener('DOMContentLoaded', () => {
             currentPosition -= 1
         }
         draw()
+    }
+
+    isAtRight = () => {
+        return current.some(index => (currentPosition + index + 1) % width === 0)
+    }
+
+    isAtLeft = () => {
+        return current.some(index => (currentPosition + index) % width === 0)
+    }
+
+    checkRotatedPosition = (P) => {
+        P = P || currentPosition
+        if ((P+1) % width < 4) {
+            if (isAtRight()){
+                currentPosition += 1
+                checkRotatedPosition(P)
+            }
+        } else if (P % width > 5){
+            if (isAtLeft()){
+                currentPosition -= 1
+                checkRotatedPosition(P)
+            }
+        }
     }
 
     rotate = () => {
