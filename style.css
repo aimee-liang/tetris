@@ -1,3 +1,16 @@
+body {
+    background-color: #75B9BE;
+}
+
+.name {
+    font-family: 'Bangers', cursive;
+    font-size: 70px;
+}
+
+.your-score{
+    
+}
+
 .grid {
     width: 200px;
     height: 400px;
@@ -32,4 +45,13 @@
 .mini-grid div {
     height: 20px;
     width: 20px;
+}
+
+.tetris {
+    align-items: center;
+    margin: auto;
+}
+
+.button {
+    margin-bottom: 4%;
 }
